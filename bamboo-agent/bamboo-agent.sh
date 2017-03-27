@@ -1,5 +1,15 @@
 #!/bin/bash
 
+## Installing requested packages
+if [ "${PACKAGES}" != "" ]
+then
+  echo "Packages to install: "${PACKAGES}
+  yum -y update && yum -q -y ${PACKAGES} && yum -q -y clean all
+
+else
+  echo "Nothing to install."
+fi
+
 cd $HOME
 # Function used to validate if JAR File Exists
 function validate_url(){
