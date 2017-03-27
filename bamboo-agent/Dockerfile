@@ -10,6 +10,6 @@ RUN yum -y update \
 WORKDIR /root
 
 COPY bamboo-agent.sh /root/bamboo-agent.sh
-
+RUN chmod +x /root/bamboo-agent.sh
 #USER bamboo-agent
 ENTRYPOINT ["/bin/bash", "-c", "/root/bamboo-agent.sh"]

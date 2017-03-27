@@ -6,21 +6,21 @@ networks:
 
 services:
   nexus:
-    build: ./docker-nexus
+    build: ./nexus
     ports:
         - 18081:8081
     networks:
         - bamboo_net
 
   bamboo-server:
-      build: ./bamboo-server
+    build: ./bamboo-server
     ports:
         - 8085:8085
         - 54663:54663
     links:
         - mysqldb
     volumes:
-        - bamboo-home:/${BAMBOO_HOME}
+        - bamboo-home:/home/bamboo
     environment:
         BAMBOO_VERSION: ${BAMBOO_VERSION}
         BAMBOO_HOME: /home/bamboo
