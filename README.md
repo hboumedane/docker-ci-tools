@@ -1,4 +1,4 @@
-**CI Tools based on Bamboo**
+##CI Tools based on Bamboo**
 
 Set of docker images to install Atlassian Bamboo server and agent based on CentOS.
 
@@ -7,3 +7,11 @@ Set of docker images to install Atlassian Bamboo server and agent based on CentO
 `bamboo-agent` - Bamboo Agent  
 `msysql-db` - Mysql Database Server  
 `nexus` - Nexus as a Repository manager
+
+
+## Usage
+```bash
+$ git clone https://github.com/hboumedane/docker-ci-tools.git bamboo-stack
+$ cd bamboo-stack
+$ docker-compose up -d .
+```
