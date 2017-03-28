@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:7
 
 ENV SONATYPE_WORK /sonatype-work
 ENV NEXUS_VERSION 2.14.1-01

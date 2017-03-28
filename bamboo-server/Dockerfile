@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM bamboo-base
 MAINTAINER homada
 
 ENV BAMBOO_VERSION 5.15.4
@@ -12,22 +12,6 @@ EXPOSE 8085 54663
 
 # create bamboo user
 RUN groupadd -r bamboo && useradd -r -g bamboo bamboo
-
-# Install jdk and utilities
-RUN yum update -y && \
-yum install -y wget && \
-yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel \
-    git \
-    bzip2 \
-    unzip \
-    fontconfig \
-  && yum clean all
-
-# Maven Download and config
-RUN \
-  mkdir /opt/maven-3.3 \
-  && curl -kL http://ftp.unicamp.br/pub/apache/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz | \
-    tar -xz --strip 1 -C /opt/maven-3.3 && ln -s /opt/maven-3.3/bin/mvn /usr/bin/mvn
 
 # Bamboo Download
 RUN \

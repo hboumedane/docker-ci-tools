@@ -1,15 +1,10 @@
-FROM centos:latest
+FROM bamboo-base
 MAINTAINER h.Boumedane
-
-# Update system & install dependencies
-RUN yum -y update \
-	&& yum -q -y install git java-1.8.0-openjdk-devel unzip wget which \
-	&& yum -q -y clean all
 
 # Preparing agent environment
 WORKDIR /root
 
-COPY bamboo-agent.sh /root/bamboo-agent.sh
-RUN chmod +x /root/bamboo-agent.sh
+COPY ./resources/ /root/
+RUN chmod +x /root/bamboo-agent.sh && chmod 777 /root/atlassian*.jar
 #USER bamboo-agent
 ENTRYPOINT ["/bin/bash", "-c", "/root/bamboo-agent.sh"]
