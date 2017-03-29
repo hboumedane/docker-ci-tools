@@ -1,4 +1,4 @@
-##CI Tools based on Bamboo**
+##CI Tools based on Bamboo
 
 Set of docker images to install Atlassian Bamboo server and agent based on CentOS.
 
